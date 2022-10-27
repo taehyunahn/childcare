@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>신작</title>
+    <script language="JavaScript">
+      function setCookie(name, value, expiredays) {
+        var date = new Date();
+        date.setDate(date.getDate() + expiredays);
+        document.cookie =
+          escape(name) +
+          '=' +
+          escape(value) +
+          '; expires=' +
+          date.toUTCString();
+      }
+
+      function closePopup() {
+        if (document.getElementById('check').value) {
+          setCookie('popupYN', 'N', 1);
+          self.close();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <!-- <p style="text-align: left; font-size: medium; color: darkorange">
+      <b>[이달의 신인상]</b>
+    </p>
+    <p style="text-align: center; font-size: 30px; color: darkred">
+      <b>< 도토리 쟁탈전 ></b>
+    </p> -->
+
+    <img src="./img/popup.png" style="width: 100%; margin-top: 0px" />
+    <br />
+
+    <input type="checkbox" id="check" align="right" onclick="closePopup();" />
+
+    <font style="text-align: right; font-size: larger"
+      >24시간 동안 다시 열람하지 않습니다.</font
+    >
+    <input type="button" value="닫기" onclick="window.close();" />
+  </body>
+</html>
