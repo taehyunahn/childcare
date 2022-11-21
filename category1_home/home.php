@@ -64,7 +64,7 @@
         <div class="container">
             <?php 
             // 상단 네비게이션
-                include $_SERVER['DOCUMENT_ROOT'].'/navigation/top.php';
+                include '../navigation/top.php';
             ?>
 
             <div class="container">
@@ -114,7 +114,7 @@
 
     <?php 
     // 하단 footer
-    include $_SERVER['DOCUMENT_ROOT'].'/navigation/bottom.php';
+    include '../navigation/bottom.php';
     ?>
 
 
