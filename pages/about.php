@@ -56,10 +56,3 @@
     // 하단 footer
     include $_SERVER['DOCUMENT_ROOT'].'/navigation/bottom.php';
     ?>
-
-
-
-
-        </body>
-
-        </html>
