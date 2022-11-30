@@ -1,80 +1,36 @@
-<?php
-    include $_SERVER['DOCUMENT_ROOT']."/navigation/dbConnect.php";
+<?php 
+// 상단 코드 (+ 네비게이션 포함)
+    include $_SERVER['DOCUMENT_ROOT'].'/childcareWebsite/components/top.php';
 ?>
-
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>어린이집으로</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
-        }
-    }
-    </style>
-
-    <!-- Custom styles for this template -->
-    <link href="headers.css" rel="stylesheet">
-</head>
-
-<body>
+<div class="container">
     <main>
-        <div class="container">
-            <?php 
-            // 상단 네비게이션
-                include $_SERVER['DOCUMENT_ROOT'].'/navigation/top.php';
-            ?>
+        <div class="col-md-12 col-lg-12">
+            <h4 class="mb-3">공지사항</h4>
 
-            <div class="container">
-                <main>
-                    <div class="col-md-12 col-lg-12">
-                        <h4 class="mb-3">공지사항</h4>
+        </div>
 
-                    </div>
+        <article class="table" id="tables">
+            <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+            </div>
 
-                    <article class="table" id="tables">
-                        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-                        </div>
+            <div>
+                <div class="bd-example">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <!-- table: 표 전체, tr: 열(row), td/th: 셀 -->
+                            <tr>
+                                <th scope="col">번호</th>
+                                <th scope="col">제목</th>
+                                <th scope="col">글쓴이</th>
+                                <th scope="col">작성일</th>
+                                <th scope="col">조회 수</th>
+                                <th scope="col">댓글 수</th>
+                            </tr>
+                        </thead>
 
-                        <div>
-                            <div class="bd-example">
-                                <table class="table table-striped text-center">
-                                    <thead>
-                                        <!-- table: 표 전체, tr: 열(row), td/th: 셀 -->
-                                        <tr>
-                                            <th scope="col">번호</th>
-                                            <th scope="col">제목</th>
-                                            <th scope="col">글쓴이</th>
-                                            <th scope="col">작성일</th>
-                                            <th scope="col">조회 수</th>
-                                            <th scope="col">댓글 수</th>
-                                        </tr>
-                                    </thead>
+                        <tbody>
 
-                                    <tbody>
-
-                                        <?php
+                            <?php
 
                                         if(isset($_GET['current_page'])) {
                                             $current_page = $_GET['current_page'];
@@ -132,18 +88,18 @@
                                             ?>
 
 
-                                    </tbody>
-                                </table>
+                        </tbody>
+                    </table>
 
 
-                            </div>
+                </div>
 
 
 
-                            <!-- 테스트 완료 -->
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <?php //정상 작동 중 - 테스트 완료 (페이지 6이상에 가면, 맨앞 버튼 나옴 )
+                <!-- 테스트 완료 -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <?php //정상 작동 중 - 테스트 완료 (페이지 6이상에 가면, 맨앞 버튼 나옴 )
                                     if ($now_block > 1) {
                                         echo '<li class="page-item">
                                             <a class="page-link"
@@ -162,7 +118,7 @@
                                     }
                                     ?>
 
-                                    <?php //정상 작동 중 - 테스트 완료 (6개 블락 단위로 이동)
+                        <?php //정상 작동 중 - 테스트 완료 (6개 블락 단위로 이동)
                                 for ($i = $start_page; $i <= ($end_page_test); $i++) {
                                     if($i==$current_page) {
                                         echo '  <li class="page-item active"><a class="page-link"
@@ -176,7 +132,7 @@
                                 ?>
 
 
-                                    <?php //정상 작동 중 - 테스트 완료 (마지막 페이지까지만 다음 버튼 있음)
+                        <?php //정상 작동 중 - 테스트 완료 (마지막 페이지까지만 다음 버튼 있음)
                                     if($current_page < $total_page && $start_next < $total_page) {
                                         $next_page = $current_page+1;
                                         echo '<a class="page-link"
@@ -193,16 +149,16 @@
                                     ';
                                     }
                                     ?>
-                                </ul>
-                            </nav>
+                    </ul>
+                </nav>
 
 
-                            <div class="row">
+                <div class="row">
 
 
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
 
-                                    <?php
+                        <?php
                                 session_start();
 
                                 //만약에, $_SESSION['role']이 admin이라면, 글쓰기 버튼이 나오고. 그렇지 않으면 출력하지 않는다
@@ -214,36 +170,36 @@
                                 ?>
 
 
-                                    <!-- <a class="btn btn-secondary" href="/category4_notice/writeMain.php">글쓰기</a> -->
-                                </div>
+                        <!-- <a class="btn btn-secondary" href="/category4_notice/writeMain.php">글쓰기</a> -->
+                    </div>
 
 
 
 
-                            </div>
-                        </div>
+                </div>
             </div>
-            </article>
-        </div>
-    </main>
+</div>
+</article>
+</div>
+</main>
 
-    </div>
-
-
-    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-
-    <script src="form-validation.js"></script>
+</div>
 
 
+<script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
-    </div>
-    </main>
-    <!-- <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+<script src="form-validation.js"></script>
 
 
-    <?php 
+
+</div>
+</main>
+<!-- <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+
+
+<?php 
     // 하단 footer
     include $_SERVER['DOCUMENT_ROOT'].'/navigation/bottom.php';
     ?>
